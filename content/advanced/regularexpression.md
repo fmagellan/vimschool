@@ -60,7 +60,7 @@ For example:
 /\w\+\s\+\w\+
 ```
 
-matches a word followed by whitespace and another word.
+This matches a word followed by whitespace and another word.
 
 ## Character classes
 
@@ -104,13 +104,13 @@ Anchors match a position rather than a character:
 /^Hello/
 ```
 
-matches `Hello` at the beginning of a line.
+This matches `Hello` at the beginning of a line.
 
 ```vim
 /World$/
 ```
 
-matches `World` at the end of a line.
+This matches `World` at the end of a line.
 
 ## Alternation
 

@@ -42,40 +42,48 @@ This is especially useful for repeated edits such as formatting several similar 
 
 ## Example macro
 
-Suppose you want to transform several lines by adding a comment marker at the start of each line. You can record a macro like this:
+Suppose you want to add a comment marker at the start of several lines. Start by recording the action:
 
 ```vim
-qaI# <Esc>j@a
+qa
+I# <Esc>
+j
+q
 ```
 
-This does the following:
+This records these steps in register `a`:
 
-- `qa` starts recording in register `a`
-- `I` moves to the beginning of the line and enters insert mode
+- `I` enters insert mode at the beginning of the line
 - `# ` inserts a comment prefix
-- `<Esc>` leaves insert mode
+- `<Esc>` returns to Normal mode
 - `j` moves to the next line
-- `@a` replays the macro while recording, so the same actions repeat for the next line
 
-You can then run the macro on subsequent lines with `@a` or `@@`.
+Now replay the macro on the next lines:
+
+```vim
+@a
+@@
+```
+
+This applies the same action to the current line and then repeats it for subsequent lines.
 
 ## Macro best practices
 
 - Keep macros short and simple.
 - Record only the exact actions you need to repeat.
-- Use `q` with a descriptive register name such as `a`, `b`, or `m`.
+- Use a descriptive register name such as `a`, `b`, or `m`.
 - Break complex tasks into smaller macros if needed.
 
 ## Using a macro on a range of lines
 
-You can apply a macro to a range by using a Visual selection and then running the macro once per selected line. For example:
+You can apply a macro to a range by using Visual mode to select lines and then run the macro once per selected line:
 
 ```vim
 Vjjj
 @a
 ```
 
-This applies the recorded macro to each selected line.
+This applies the macro to each selected line.
 
 ## Editing the macro text
 
@@ -85,15 +93,13 @@ Macros are stored in Vim registers, which you can inspect and edit. View the con
 "ap
 ```
 
-This prints the macro stored in register `a`.
-
-You can also paste the register into a file or modify it by editing the text and reusing it later.
+This prints the macro stored in register `a`, and you can then copy or adjust it if needed.
 
 ## Try it
 
 1. Open a file with several similar lines.
 2. Record a macro with `qa`.
-3. Perform a simple edit, such as adding a prefix or changing a repeated word.
+3. Perform a simple edit such as inserting a comment prefix.
 4. Stop recording with `q`.
 5. Replay it with `@a` and then `@@`.
 6. Inspect the stored macro with `"ap`.

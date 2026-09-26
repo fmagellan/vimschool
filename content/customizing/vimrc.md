@@ -6,7 +6,7 @@ weight = 5
 
 # The .vimrc File
 
-The `.vimrc` file is your personal configuration file for Vim. It allows you to customize settings, define mappings, enable plugins, and personalize your Vim environment. This file is read when Vim starts up and applies your preferences.
+The `.vimrc` file is your personal configuration file for Vim. It allows you to customize settings, define mappings, enable plugins, and personalize your Vim environment. This file is read when Vim starts up, and it is one of the easiest ways to make Vim fit your workflow.
 
 ## Locating and creating your .vimrc
 
@@ -22,7 +22,7 @@ On Windows, it may be located at:
 %USERPROFILE%/_vimrc
 ```
 
-To create a new `.vimrc` file, open Vim and type:
+To create a new `.vimrc`, open Vim and type:
 
 ```vim
 :edit ~/.vimrc
@@ -70,14 +70,14 @@ map <C-j> j
 " Map Ctrl-s to save
 map <C-s> :w<CR>
 
-" Map leader key to space
+" Map the leader key to the space bar
 let mapleader = " "
 
 " Map leader+w to save
 map <leader>w :w<CR>
 ```
 
-Use `noremap` to avoid recursive mappings:
+Use `noremap` to avoid recursive mappings and make custom bindings more predictable:
 
 ```vim
 noremap <C-l> l
@@ -94,7 +94,7 @@ autocmd FileType markdown setlocal spelllang=en_us
 
 ## Abbreviations
 
-Create text abbreviations that expand when you press space or enter:
+Create text abbreviations that expand when you press space or Enter:
 
 ```vim
 iabbrev teh the
